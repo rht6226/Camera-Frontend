@@ -1,6 +1,6 @@
 (function () {
         
-        var url = 'http://0.0.0.0:5000/image'; 
+        var url = 'http://0.0.0.0:5000/drive'; 
         var width = 1080; // We will scale the photo width to this
         var height = 0; // This will be computed based on the input stream
 
@@ -14,12 +14,15 @@
         var seconds = 10;
         var stop = false;
 
+        var resultShower;
+
         function startup() {
             video = document.getElementById('video');
             canvas = document.getElementById('canvas');
             photo = document.getElementById('photo');
             startbutton = document.getElementById('startbutton');
             endbutton = document.getElementById('endbutton');
+            resultShower = document.getElementById('show_result');
 
             // Get permission and stream video
             navigator.mediaDevices.getUserMedia({
@@ -79,9 +82,11 @@
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
                     }
-            }).then(response => {
-                console.log(response);
-            })
+            }).then(response => response.text())
+            .then(data => {
+                resultShower.innerHTML = data;
+                console.log(data);
+            });
             
         }
     
