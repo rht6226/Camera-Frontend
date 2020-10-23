@@ -1,6 +1,6 @@
 (function () {
         
-        var url = 'http://0.0.0.0:5000/drive'; 
+        var url = 'http://127.0.0.1:5000/drive'; 
         var width = 1080; // We will scale the photo width to this
         var height = 0; // This will be computed based on the input stream
 
