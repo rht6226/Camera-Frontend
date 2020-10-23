@@ -16,6 +16,7 @@
     var stopped = true;
 
     var resultShower;
+    var audio;
 
     function startup() {
         video = document.getElementById('video');
@@ -25,6 +26,7 @@
         endbutton = document.getElementById('endbutton');
         icon = document.getElementById('start_stop');
         resultShower = document.getElementById('pred');
+        audio = document.getElementById("audio"); 
 
         // Get permission and stream video
         navigator.mediaDevices.getUserMedia({
@@ -88,6 +90,9 @@
         .then(data => {
             pred = JSON.parse(data);
             resultShower.innerHTML = pred.prediction;
+            if (pred.prediction === "unsafe") {
+                audio.play();
+            }
             console.log(data);
         });
         
