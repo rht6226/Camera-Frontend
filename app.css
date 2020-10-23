@@ -1,0 +1,15 @@
+ /* CSS comes here */
+ #video {
+    border-radius: 6%;
+    width: 80%;
+    height: auto;
+}
+
+#canvas {
+    display: none;
+}
+
+
+.titlebar {
+    height: 8vh;
+}
